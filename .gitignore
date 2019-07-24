@@ -4,3 +4,4 @@ terraform.tfstate.backup
 .terraform
 ca-test-private-key.pem
 ca-test-public.crt
+certificates

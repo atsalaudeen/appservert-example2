@@ -1,15 +1,14 @@
 resource "aws_launch_configuration" "asg_temp_for_webserver" {
   #name   = "AutoScaleGrp-webserver-1"
-  name_prefix     = "testapp-asg"
+  name_prefix     = "test-app-asg-"
   # to use parker image, generate the image and update the ami id here
-  #image_id = "ami-03fd2027f09074770"
-   image_id = "ami-0438dd8314dde7593"
+  image_id = "ami-03fd2027f09074770"
   # to use latest amazon linux 2 ami
   #image_id      = "${data.aws_ami.amazon-linux-2.id}"
   # to use a known ami
   #image_id      = "ami-0b898040803850657"
   instance_type = "${var.web_server_instance_type}"
-  user_data = "${file("${var.user_data_for_webserver}")}"
+  #user_data = "${file("${var.user_data_for_webserver}")}"
   security_groups = ["${aws_security_group.testapp-instance-sg.id}"]
   key_name = "${var.pem_file_webservers}"
   root_block_device {

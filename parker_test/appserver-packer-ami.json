@@ -1,0 +1,28 @@
+{
+  "builders": [{
+    "type": "amazon-ebs",
+    "region": "us-east-1",
+    "source_ami": "ami-0b898040803850657",
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "ami_name": "testappserver2-{{timestamp}}"
+  }],
+
+  "provisioners": [{
+      "type": "file",
+      "source": "../userdata_code/",
+      "destination": "/tmp"
+    },
+    {
+    "type": "shell",
+    "inline": [
+      "sudo yum update -y",
+      "sudo yum install -y httpd",
+      "sudo cp /tmp/index.html /var/www/html/index.html",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd"
+    ]
+  }]
+
+}
+

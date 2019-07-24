@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "test_webserver" {
   min_size                  = 1
   health_check_grace_period = 300
   health_check_type         = "EC2"
-  desired_capacity          = 2
+  desired_capacity          = 1
   force_delete              = true
   launch_configuration      = "${aws_launch_configuration.asg_temp_for_webserver.name}"
   vpc_zone_identifier       = ["${aws_subnet.public_subnet_1.id}", "${aws_subnet.public_subnet_2.id}", "${aws_subnet.public_subnet_3.id}"]

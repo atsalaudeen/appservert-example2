@@ -134,7 +134,7 @@ variable "user_data_for_webserver" {
 
 variable "pem_file_webservers" {
   description = "Pem key to be able to access webserver after launch"
-  default     = "test-acc-only"
+  default     = "sta-acc-only"
 }
 
 # VPC Variables
