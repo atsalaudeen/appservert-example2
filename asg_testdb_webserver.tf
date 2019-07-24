@@ -19,7 +19,7 @@ resource "aws_sns_topic" "techsupport-emergency" {
 
 resource "aws_autoscaling_group" "test_webserver" {
   name                      = "WebServer-asg"
-  max_size                  = 3
+  max_size                  = 1
   min_size                  = 1
   health_check_grace_period = 300
   health_check_type         = "EC2"
